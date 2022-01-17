@@ -1,0 +1,5 @@
+# Ignore old config files
+*.old
+
+# Ignore backups of configurations
+*.bck*
