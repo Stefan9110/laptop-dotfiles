@@ -19,11 +19,14 @@ bspc rule -a mplayer2 state=floating
 bspc rule -a Kupfer.py focus=on
 bspc rule -a Screenkey manage=off
 
-# My noice startup script
+# My custom startup script
 /home/stefan911/.config/startup/./start.sh &
 
-# Polybar
-polybar &
+# Mouse pointer
+xsetroot -cursor_name left_ptr &
 
-# Picom with rounded corners
+# Polybar config
+# polybar &
+
+# Start picom
 picom -f
