@@ -29,9 +29,7 @@ $reboot)
   systemctl reboot
   ;;
 $lock)
-  if [[ -f /usr/bin/i3lock ]]; then
-    i3lock-fancy
-  elif [[ -f /usr/bin/betterlockscreen ]]; then
+  if [[ -f /usr/bin/betterlockscreen ]]; then
     betterlockscreen -l
   fi
   ;;
