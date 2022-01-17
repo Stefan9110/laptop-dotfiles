@@ -38,6 +38,22 @@ super + y
 super + g
 	bspc node -s biggest.window
 
+# Take screenshot
+Print
+	screenshotme
+
+# Take selection screenshot
+super + Print
+	screenshotme -s
+
+# Take screenshot in clipboard
+ctrl + Print
+        cscreenshotme
+
+# Take selection screenshot in clipboard
+super + ctrl + Print
+        cscreenshotme -s
+
 #
 # state/flags
 #
