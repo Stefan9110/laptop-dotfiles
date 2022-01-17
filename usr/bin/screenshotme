@@ -1,0 +1,11 @@
+#!/bin/bash
+IMAGE_NAME=$(date +"%Y-%m-%d-%H%M%S")_screenshot.png
+SCREENSHOT_PATH=$HOME/Downloads/Screenshots/$IMAGE_NAME
+if [[ $1 == '-s' ]]
+then
+	escrotum -s $SCREENSHOT_PATH && 
+	notify-send -t 3000 -u low -i $SCREENSHOT_PATH "Screenshot taken" $IMAGE_NAME
+else 
+	escrotum $SCREENSHOT_PATH && 
+        notify-send -t 3000 -u low -i $SCREENSHOT_PATH "Screenshot taken" $IMAGE_NAME
+fi
