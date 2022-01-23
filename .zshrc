@@ -1,9 +1,6 @@
 # Set oh-my-zsh env
 export ZSH="$HOME/.oh-my-zsh" 
 
-# Path
-export PATH="$PATH:$HOME/.local/bin"
-
 # oh-my-zsh theme
 ZSH_THEME="agnoster"
 
