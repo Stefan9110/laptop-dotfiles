@@ -97,7 +97,7 @@ super + {_,shift + }{1-5}
 	bspc {desktop -f,node -d} '^{1-5}'
 
 # Swap between workspaces with arrows
-ctrl + alt + {Left,Right}
+super + {bracketleft,bracketright}
 	bspc desktop -f '{prev,next}'
 
 #
