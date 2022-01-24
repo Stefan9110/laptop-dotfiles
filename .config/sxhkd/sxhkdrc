@@ -92,6 +92,9 @@ super + {o,i}
 	bspc node {older,newer} -f; \
 	bspc wm -h on
 
+super + e
+	winhide
+
 # focus or send to the given desktop
 super + {_,shift + }{1-5}
 	bspc {desktop -f,node -d} '^{1-5}'
