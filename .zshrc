@@ -53,6 +53,7 @@ alias fm='thunar'
 alias editstart='vim ~/.config/startup/start.sh'
 alias bsquit='bspc quit'
 alias dotfiles='cd ~/Coding/Linux/dotfiles'
+alias pdf='llpp'
 
 # History
 HISTFILE=~/.zsh_history
