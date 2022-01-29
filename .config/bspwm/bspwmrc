@@ -17,13 +17,13 @@ bspc rule -a Kupfer.py focus=on
 bspc rule -a Screenkey manage=off
 
 # My custom startup script
-/home/stefan911/.config/startup/./start.sh &
+$HOME/.config/startup/./start.sh &
 
 # Mouse pointer
 xsetroot -cursor_name left_ptr &
 
 # Polybar config
-/home/stefan911/.config/polybar/shades/./launch.sh &
+$HOME/.config/polybar/shades/./launch.sh &
 
 # Start picom
 picom -f
