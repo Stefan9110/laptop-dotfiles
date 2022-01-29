@@ -54,6 +54,12 @@ alias editstart='vim ~/.config/startup/start.sh'
 alias bsquit='bspc quit'
 alias dotfiles='cd ~/Coding/Linux/dotfiles'
 alias pdf='llpp'
+alias ssh="kitty +kitten ssh"
+
+# More aliases
+if [ -f ~/.zsh_aliases ]; then
+	. ~/.zsh_aliases
+fi
 
 # History
 HISTFILE=~/.zsh_history
