@@ -12,20 +12,18 @@
 
 gradient = 10
 
-gradient_count = 6 
+gradient_count = 5 
 
-gradient_color_1 = '#4C566A'
+gradient_color_1 = '#56068F'
 
-gradient_color_2 = '#5E81AC'
+gradient_color_2 = '#8A30C9'
 
-gradient_color_3 = '#81A1C1'
+gradient_color_3 = '#A337F0'
 
-gradient_color_4 = '#88C0D0'
+gradient_color_4 = '#D092FC'
 
-gradient_color_5 = '#D8DEE9'
+gradient_color_5 = '#D9B3F5'
 
-gradient_color_6 = '#E5E9F0' 
- 
 [smoothing]
 
 # Percentage value for integral smoothing. Takes values from 0 - 100.
