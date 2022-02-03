@@ -2,7 +2,7 @@
 
 * {
  bg:#1F1F1F;
- bg1:#5E81AC;
+ bg1:#8A30C9;
  bg2:#64B5F6;
  bg3:#64B5F6;
  fg:#ECEFF4;
@@ -12,7 +12,7 @@
   orange:#D08770;
   yellow:#EBCB8B;
   magenta:#B48EAD;
-  cyan:#B0BFCF;
+  cyan:#D092FC;
   blue:#81A1C1;
   green:#A3BE8C;
   transparent: #00000000;
