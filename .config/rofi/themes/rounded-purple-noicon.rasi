@@ -17,7 +17,3 @@
 
 @import "rounded-common.rasi"
 
-configuration {
-    show-icons:         true;
-}
-

@@ -14,10 +14,6 @@
     spacing:    0px;
 }
 
-configuration {
-    show-icons:         true;
-}
-
 window {
     location:       center;
     width:          480;

@@ -14,12 +14,8 @@ super + space
 super + alt + Return
 	sh $HOME/.config/rofi/powermenu.sh
 
-XF86Launch1
-	sh $HOME/.config/rofi/launcher.sh
-
-# wifi menu
-super + alt + w
-	sh $HOME/.config/rofi/wifimenu.sh
+# XF86Launch1
+#	sh $HOME/.config/rofi/launcher.sh
 
 # make sxhkd reload its configuration files:
 super + Escape
