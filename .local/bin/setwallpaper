@@ -1,0 +1,6 @@
+#!/bin/sh
+CURR_WALLPAPER=$HOME/Wallpapers/current
+if [ ! -f $CURR_WALLPAPER ]; then
+	exit 1
+fi
+feh --no-fehbg --bg-fill $CURR_WALLPAPER
