@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+CURRENT=$(asusctl profile -p | grep -Eo "(Balanced|Performance|Quiet)")
+
+case $CURRENT in
+	'Performance')
+		echo "  ";;
+	'Balanced')
+		echo " ";;
+	'Quiet')
+		echo "ﴛ ";;
+esac
