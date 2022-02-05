@@ -16,6 +16,10 @@ bspc config gapless_monocle      true
 bspc rule -a Kupfer.py focus=on
 bspc rule -a Screenkey manage=off
 
+# Screen saver options
+xset -dpms
+xset s 300
+
 # My custom startup script
 $HOME/.config/startup/./start.sh &
 
@@ -24,6 +28,9 @@ xsetroot -cursor_name left_ptr &
 
 # Polybar config
 $HOME/.config/polybar/shades/./launch.sh &
+
+# Lockscreen
+xss-lock --ignore-sleep -- betterlockscreen -l --off 2 &
 
 # Start picom
 picom -f
