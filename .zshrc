@@ -54,7 +54,9 @@ alias editstart='vim ~/.config/startup/start.sh'
 alias bsquit='bspc quit'
 alias dotfiles='cd ~/Coding/Linux/dotfiles'
 alias pdf='llpp'
-alias ssh="kitty +kitten ssh"
+alias ssh='kitty +kitten ssh'
+alias usbmount='udisksctl mount -b'
+alias usbumount='udisksctl unmount -b'
 
 # More aliases
 if [ -f ~/.zsh_aliases ]; then
