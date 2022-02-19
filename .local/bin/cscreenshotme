@@ -1,9 +1,0 @@
-#!/bin/bash
-if [[ $1 == '-s' ]]
-then
-	escrotum -C -s && 
-	notify-send -t 3000 -u low "Screenshot taken" "Your screenshot was saved to clipboard."
-else 
-	escrotum -C $SCREENSHOT_PATH && 
-	notify-send -t 3000 -u low "Screenshot taken" "Your screenshot was saved to clipboard."
-fi

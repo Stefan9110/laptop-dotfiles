@@ -55,11 +55,11 @@ super + Print
 
 # Take screenshot in clipboard
 ctrl + Print
-        cscreenshotme
+	screenshotme -C
 
 # Take selection screenshot in clipboard
 super + ctrl + Print
-        cscreenshotme -s
+	screenshotme -s -C
 
 #
 # state/flags
