@@ -85,13 +85,12 @@ let g:clang_format#style_options = {
   \ 'TabWidth'                                  : '4',
   \ 'UseTab'                                    : 'ForIndentation',
   \ }
-let g:AutoPairs = {'(':')', '[':']', '<':'>', '{':'}',"'":"'",'"':'"', "`":"`", '```':'```', '"""':'"""', "'''":"'''"}
+let g:AutoPairs = {'(':')', '[':']', '{':'}',"'":"'",'"':'"', "`":"`", '```':'```', '"""':'"""', "'''":"'''"}
 let g:airline_theme='owo'
 
 " --> Key Maps <--
 " Format C code
 autocmd Filetype c,cpp map \ :ClangFormatC <Return>
 autocmd Filetype c,cpp map <F5> :w <Return> :!compandrun % <Return>
-autocmd Filetype c,cpp map ; A ; <Esc> :ClangFormatC <Return>
-
-map <Caps_Lock> <esc>
+autocmd Filetype c,cpp map ; A ; <esc> :ClangFormatC <Return>
+autocmd Filetype c,cpp imap <Tab> <C-n> 
