@@ -1,0 +1,22 @@
+#!/bin/bash
+
+if [ $# -eq 0 ] || [ -z $1 ] || [ ! -f "./$1" ]; then
+	exit 1
+fi
+
+# If the given file type is not C/C++ exit
+echo "$1" | grep -Evq "\.c(pp)?$" && exit 1
+
+# Binary file name
+bin=$(echo $1 | sed "s/c\(pp\)\?/o/g")
+
+# Compile
+echo $1 | grep -Eq "\.c$" && gcc $1 -o $bin
+echo $1 | grep -Eq "\.cpp$" && g++ $1 -o $bin
+
+# Run and time execution
+if [ ! -f "./$bin" ]; then
+	echo "Compilation failed"
+	exit 1
+fi
+time ./$bin
