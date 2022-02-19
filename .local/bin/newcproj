@@ -17,8 +17,9 @@ PROJ_PATH="$HOME/Coding/C/$1"
 
 # Check if project already exists in order to not ovveride existing files
 if [ -d $PROJ_PATH ]; then
-	echo "Project already exists..."	
-	vim "$PROJ_PATH/$(ls $PROJ_PATH | grep -Eo "$1\.c(pp)?")"
+	existing_file="$(ls $PROJ_PATH | grep -Eo "$1\.c(pp)?")"
+	notify-send "Project already exists" "Editing existing file $existing_file"
+	vim $PROJ_PATH/$existing_file
 	exit 1;
 fi
 
