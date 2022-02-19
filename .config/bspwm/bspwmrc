@@ -35,5 +35,8 @@ xss-lock --ignore-sleep -- betterlockscreen -l --off 2 &
 # Window swallowing patch
 pgrep bspswallow || bspswallow &
 
+# Get rid of caps lock lol
+setxkbmap -option caps:escape &
+
 # Start picom
 picom -f
