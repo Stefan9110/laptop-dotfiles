@@ -1,5 +1,5 @@
 # Set oh-my-zsh env
-export ZSH="$HOME/.oh-my-zsh" 
+export ZSH="$XDG_CONFIG_HOME/zsh/oh-my-zsh" 
 
 # oh-my-zsh theme
 ZSH_THEME="agnoster"
@@ -16,8 +16,8 @@ export EDITOR='vim'
 # autocomplete
 autoload -Uz compinit
 compinit -d $XDG_CACHE_HOME/zsh/zcompdump-$ZSH_VERSION
-zstyle ':completion:*:*:*:*:*' menu select cache-path $XDG_CACHE_HOME/zsh/zcompcache
-zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' cache-path $XDG_CACHE_HOME/zsh/zcompcache # case insensitive tab completion
+zstyle ':completion:*:*:*:*:*' menu select #cache-path $XDG_CACHE_HOME/zsh/zcompcache
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' # cache-path $XDG_CACHE_HOME/zsh/zcompcache # case insensitive tab completion
 
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"

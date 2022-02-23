@@ -3,3 +3,5 @@
 
 # Ignore backups of configurations
 *.bck*
+
+backup
