@@ -13,7 +13,7 @@ if [ $# -eq 2 ] || [ ! -z $2 ]; then
 	echo $2 | grep -Eoq "c(pp)?" && LANG=$2
 fi
 
-PROJ_PATH="$HOME/Coding/C/$1"
+PROJ_PATH="$HOME/proj/c/$1"
 
 # Check if project already exists in order to not ovveride existing files
 if [ -d $PROJ_PATH ]; then
