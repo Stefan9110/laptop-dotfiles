@@ -15,9 +15,9 @@ export EDITOR='vim'
 
 # autocomplete
 autoload -Uz compinit
-compinit -d ~/.cache/zcompdump
-zstyle ':completion:*:*:*:*:*' menu select
-zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' # case insensitive tab completion
+compinit -d $XDG_CACHE_HOME/zsh/zcompdump-$ZSH_VERSION
+zstyle ':completion:*:*:*:*:*' menu select cache-path $XDG_CACHE_HOME/zsh/zcompcache
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' cache-path $XDG_CACHE_HOME/zsh/zcompcache # case insensitive tab completion
 
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
@@ -41,6 +41,8 @@ if [ -x /usr/bin/dircolors ]; then
     zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 fi
 
+export GVIMINIT='let $MYGVIMRC="$XDG_CONFIG_HOME/vim/gvimrc" | source $MYGVIMRC'
+export VIMINIT='let $MYVIMRC="$XDG_CONFIG_HOME/vim/vimrc" | source $MYVIMRC'
 
 # syntax highlighting
 export ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern regexp cursor)
@@ -59,12 +61,12 @@ alias v='vim'
 alias vimc='. newcproj'
 
 # More aliases
-if [ -f ~/.zsh_aliases ]; then
-	. ~/.zsh_aliases
+if [ -f $XDG_CONFIG_HOME/zsh/.zsh_aliases ]; then
+	. $XDG_CONFIG_HOME/zsh/.zsh_aliases
 fi
 
 # History
-HISTFILE=~/.zsh_history
+HISTFILE="$XDG_STATE_HOME"/zsh/zsh_history
 HISTSIZE=1000
 SAVEHIST=2000
 
