@@ -1,5 +1,5 @@
 #!/bin/sh
-CURR_WALLPAPER=$HOME/Wallpapers/current
+CURR_WALLPAPER=$HOME/wal/current
 if [ ! -f $CURR_WALLPAPER ]; then
 	exit 1
 fi

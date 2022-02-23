@@ -2,7 +2,7 @@
 
 options=$@
 IMAGE_NAME=$(date +"%Y-%m-%d-%H%M%S")_screenshot.png
-SCREENSHOT_PATH=$HOME/Downloads/Screenshots/$IMAGE_NAME
+SCREENSHOT_PATH=$HOME/ss/$IMAGE_NAME
 
 function take_screenshot() {
     echo $options |	grep -Eoq "(\-[Cs] ?){2}" && escrotum -C -s && return
