@@ -5,11 +5,11 @@ My laptop is an Asus Zephyrus G14 2021 running a Ryzen 9 5900HS CPU with a nVidi
 I am usually running the laptop with integrated graphics, because the gpu drains a lot of power, so the polybar config is adapted for that.
 
 ## Table of contents
-* [Screenshots](screenshots)
-* [Software used](software-used)
-* [Installation](installation)
-* [Contribute](contribute)
-* [License](license)
+* [Screenshots](#screenshots)
+* [Software used](#software-used)
+* [Installation](#installation)
+* [Contribute](#contribute)
+* [License](#license)
 
 ## Screenshots
 ![Screenshot 1](https://github.com/Stefan9110/laptop-dotfiles/blob/master/images/ss-1.png)
