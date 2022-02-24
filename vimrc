@@ -61,6 +61,7 @@ Plug 'bling/vim-airline' " Tmux like customization
 Plug 'vim-airline/vim-airline-themes' " Airline themes
 Plug 'bfrg/vim-cpp-modern' " Aditional C/C++ syntax highlight 
 Plug 'vim-scripts/c.vim' " Comment support C/C++
+Plug 'iamcco/markdown-preview.nvim' " Markdown viewer
 call plug#end()
 
 let g:clang_c_options = '-std=gnu11'

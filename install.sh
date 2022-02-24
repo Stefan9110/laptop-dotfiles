@@ -46,7 +46,7 @@ function link_file() {
 	ln -s "$3/$1" "$2/$1"
 }
 
-function create_symlinks() {
+function install_dots() {
 	# Configure directories
 	BIN_DIR="$(bin_dir)"
 	CONFIG_DIR="$(config_dir)"
@@ -78,6 +78,13 @@ function create_symlinks() {
 	mkdir -p "$CONFIG_DIR/vim"
 	link_file ".zshrc" "$ZSH_DIR" "$CURRENT_PATH"
 	link_file "vimrc" "$CONFIG_DIR/vim" "$CURRENT_PATH"
+	
+	# Copy fonts to local share dir
+	if [ ! -d "$HOME/.local/share/fonts" ]; then
+		echo "Installing fonts..."
+		mkdir -p "$HOME/.local/share/fonts"
+		cp -r "$CURRENT_PATH/.local/share/fonts" "$HOME/.local/share/fonts"
+	fi
 }
 
 # Main part
@@ -90,4 +97,4 @@ if [[ ! "$REPLY" =~ [yY] ]]; then
 fi
 
 echo
-create_symlinks
+install_dots
