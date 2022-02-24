@@ -12,8 +12,8 @@ I am usually running the laptop with integrated graphics, because the gpu drains
 * [License](license)
 
 ## Screenshots
-![Screenshot 1](local/ss-1.png)
-![Screenshot 2](local/ss-2.png)
+![Screenshot 1](https://github.com/Stefan9110/laptop-dotfiles/blob/master/images/ss-1.png)
+![Screenshot 2](https://github.com/Stefan9110/laptop-dotfiles/blob/master/images/ss-2.png)
 
 ## Software used
 If there is any other software I use you wish yo know, feel free to ask in the Discussion section.
