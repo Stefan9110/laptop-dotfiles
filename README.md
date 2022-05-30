@@ -38,7 +38,7 @@ Installation is done through the `install.sh` script.
 
 #### Installation Steps
 ```sh
-git clone https://github.com/Stefan9110/laptop-dotfiles
+git clone https://github.com/Stefan9110/laptop-dotfiles.git
 cd laptop-dotfiles
 ./install.sh
 ```

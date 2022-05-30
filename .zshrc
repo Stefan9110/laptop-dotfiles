@@ -44,23 +44,10 @@ fi
 export GVIMINIT='let $MYGVIMRC="$XDG_CONFIG_HOME/vim/gvimrc" | source $MYGVIMRC'
 export VIMINIT='let $MYVIMRC="$XDG_CONFIG_HOME/vim/vimrc" | source $MYVIMRC'
 
-# syntax highlighting
+# Syntax highlighting
 export ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern regexp cursor)
 
-# aliases
-alias sudoedit='sudo vim'
-alias fm='thunar'
-alias editstart='vim ~/.config/startup/start.sh'
-alias bsquit='bspc quit'
-alias dots='cd ~/proj/linux/dotfiles'
-alias pdf='llpp'
-alias ssh='kitty +kitten ssh'
-alias usbmount='udisksctl mount -b'
-alias usbumount='udisksctl unmount -b'
-alias v='vim'
-alias vimc='. newcproj'
-
-# More aliases
+# Aliases
 if [ -f $XDG_CONFIG_HOME/zsh/.zsh_aliases ]; then
 	. $XDG_CONFIG_HOME/zsh/.zsh_aliases
 fi
