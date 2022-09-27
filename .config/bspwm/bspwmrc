@@ -1,4 +1,4 @@
-#! /bin/sh
+#!/bin/sh
 
 pgrep -x sxhkd > /dev/null || sxhkd &
 
@@ -16,13 +16,14 @@ bspc config gapless_monocle      true
 bspc rule -a Kupfer.py focus=on
 bspc rule -a Screenkey manage=off
 bspc rule -a gnome-calculator state=floating
+bspc rule -a Zathura state=tiled
 
 # Screen saver options
 xset -dpms
 xset s 300
 
-# My custom startup script
-$HOME/.config/startup/./start.sh &
+# Cursor 
+xsetroot -cursor_name left_ptr
 
 # Polybar config
 $HOME/.config/polybar/shades/./launch.sh &
@@ -35,6 +36,9 @@ pgrep bspswallow || bspswallow &
 
 # Get rid of caps lock lol
 setxkbmap -option caps:escape &
+
+# My custom startup script
+$HOME/.config/startup/./start.sh &
 
 # Start picom
 picom -f

@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 ## Author	Stefan911
 ## Github	@Stefan9110

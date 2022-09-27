@@ -1,21 +1,18 @@
-#!/bin/bash
+#!/bin/sh
 
 options=$@
 IMAGE_NAME=$(date +"%Y-%m-%d-%H%M%S")_screenshot.png
 SCREENSHOT_PATH=$HOME/ss/$IMAGE_NAME
 
-function take_screenshot() {
+take_screenshot() {
     echo $options |	grep -Eoq "(\-[Cs] ?){2}" && escrotum -C -s && return
 	echo $options | grep -oq "\-C" && escrotum -C && return
 	echo $options | grep -oq "\-s" && escrotum -s $SCREENSHOT_PATH && return
 	escrotum $SCREENSHOT_PATH
 }
 
-function send_notification() {
-	if [ ! -z "$(echo "$options" | grep "\-C")" ]; then
-		xclip -selection clipboard -t image/png -out > $SCREENSHOT_PATH
-	fi
-
+send_notification() {
+	[ ! -z "$(echo "$options" | grep "\-C")" ] && xclip -selection clipboard -t image/png -out > $SCREENSHOT_PATH
 	notify-send -t 3000 -u low -i $SCREENSHOT_PATH "  Screenshot taken" $IMAGE_NAME
 }
 

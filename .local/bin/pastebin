@@ -1,0 +1,16 @@
+#!/bin/sh
+
+[ $# -eq 0 -o -z "$1" ] &&
+	echo "No arguments provided" &&
+	exit 1
+
+[ -f "$1" ] ||
+	echo "Argument is not a file" &&
+	exit 1
+
+[ $(du -m "$1" | cut -f1) -gt 512 ] &&
+	echo "File too large" &&
+	exit 1
+
+echo "Uploading to 0x0.st..."
+curl -F"file=@$1" https://0x0.st/

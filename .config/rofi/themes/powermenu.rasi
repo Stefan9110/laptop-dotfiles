@@ -47,7 +47,7 @@ element-text {
     font:			"feather 20";
     expand:                         true;
     horizontal-align:               0.5;
-    vertical-align:                 0.5;
+    vertical-align:                 0;
     margin:                         26px 26px 26px 26px;
 }
 

@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/sh
 CURRENT=$(asusctl profile -p | grep -Eo "(Balanced|Performance|Quiet)")
 
 case $CURRENT in

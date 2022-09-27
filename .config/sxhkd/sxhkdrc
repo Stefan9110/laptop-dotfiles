@@ -6,13 +6,29 @@
 super + Return
 	kitty
 
+# noefetch terminal
+ctrl + super + Return
+	sh -c "export NEO_SHOW=1 && kitty"
+
+# librewolf browser
+super + b
+	librewolf
+
+# chromium browser
+super + c
+	chromium
+
+# Toggle redhsift
+super + r
+	$HOME/.local/bin/rshtoggle
+
 # program launcher
 super + space
 	sh $HOME/.config/rofi/launcher.sh
 
 # system menu
 super + alt + Return
-	sh $HOME/.config/rofi/powermenu.sh
+	$HOME/.config/rofi/powermenu.sh
 
 # XF86Launch1
 #	sh $HOME/.config/rofi/launcher.sh
@@ -60,6 +76,14 @@ ctrl + Print
 # Take selection screenshot in clipboard
 super + ctrl + Print
 	screenshotme -s -C
+
+# Usb mount menu
+super + u
+	/home/elpengu/.config/rofi/mountmenu.sh
+#
+# Usb mount menu
+super + shift + u
+	/home/elpengu/.config/rofi/mountmenu.sh f
 
 #
 # state/flags

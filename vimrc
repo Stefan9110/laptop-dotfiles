@@ -62,6 +62,7 @@ Plug 'vim-airline/vim-airline-themes' " Airline themes
 Plug 'bfrg/vim-cpp-modern' " Aditional C/C++ syntax highlight 
 Plug 'vim-scripts/c.vim' " Comment support C/C++
 Plug 'iamcco/markdown-preview.nvim' " Markdown viewer
+Plug 'rust-lang/rust.vim' " Rust
 call plug#end()
 
 let g:clang_c_options = '-std=gnu11'
@@ -119,8 +120,27 @@ set termguicolors
 " --> Key Maps <--
 " Format C code
 autocmd Filetype c,cpp map \ :ClangFormatC <Return>
+autocmd Filetype rust map \ :RustFmt <Return>
 " Compile and run C code
 autocmd Filetype c,cpp map <F5> :w <Return> :!compandrun % <Return>
 " Add ; at the end of the line
 autocmd Filetype c,cpp map ; A ; <esc> :ClangFormatC <Return>
+autocmd Filetype rust map ; A ; <esc> :RustFmt <Return>
+autocmd Filetype rust map <F5> :w <Return> :!cargo run <Return>
+map <C-c> :on <Return>
 nnoremap <C-t> :NERDTreeToggle<CR>
+
+" Mouse
+set mouse=nicr
+imap <ScrollWheelUp> <nop>
+imap <S-ScrollWheelUp> <nop>
+imap <C-ScrollWheelUp> <nop>
+imap <ScrollWheelDown> <nop>
+imap <S-ScrollWheelDown> <nop>
+imap <C-ScrollWheelDown> <nop>
+imap <ScrollWheelLeft> <nop>
+imap <S-ScrollWheelLeft> <nop>
+imap <C-ScrollWheelLeft> <nop>
+imap <ScrollWheelRight> <nop>
+imap <S-ScrollWheelRight> <nop>
+imap <C-ScrollWheelRight> <nop>

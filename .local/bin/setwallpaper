@@ -1,6 +1,5 @@
 #!/bin/sh
+
 CURR_WALLPAPER=$HOME/wal/current
-if [ ! -f $CURR_WALLPAPER ]; then
-	exit 1
-fi
+[ ! -f $CURR_WALLPAPER ] && exit 1
 feh --no-fehbg --bg-fill $CURR_WALLPAPER

@@ -57,5 +57,13 @@ HISTFILE="$XDG_STATE_HOME"/zsh/zsh_history
 HISTSIZE=1000
 SAVEHIST=2000
 
+# Pastebin
+0file() { curl -F"file=@$1" https://envs.sh ; }
+0pb() { curl -F"file=@-;" https://envs.sh ; }
+0url() { curl -F"url=$1" https://envs.sh ; }
+0short() { curl -F"shorten=$1" https://envs.sh ; }
+imgur() { echo $(curl -s -X POST "https://api.imgur.com/3/upload" -F "image=@\"$1\"" | grep -Eo "https://i.imgur.com/[A-Za-z0-9]+\.[a-z]{2,4}") }
+#
 # flex
-neofetch
+[ ! -z $NEO_SHOW ] && neofetch
+true
