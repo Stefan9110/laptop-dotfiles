@@ -61,6 +61,10 @@ super + y
 super + g
 	bspc node -s biggest.window
 
+# Restart polybar
+super + p
+	$HOME/.config/polybar/shades/launch.sh
+
 # Take screenshot
 Print
 	screenshotme

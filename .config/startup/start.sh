@@ -15,3 +15,4 @@ keepassxc &
 
 # Start notification daemon
 # sleep 2 && notification_daemon
+~/.local/bin/notify_updates &
