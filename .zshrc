@@ -65,5 +65,5 @@ SAVEHIST=2000
 imgur() { echo $(curl -s -X POST "https://api.imgur.com/3/upload" -F "image=@\"$1\"" | grep -Eo "https://i.imgur.com/[A-Za-z0-9]+\.[a-z]{2,4}") }
 #
 # flex
-[ ! -z $NEO_SHOW ] && neofetch
+[ ! -z $NEO_SHOW ] && neofetch || task
 true

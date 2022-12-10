@@ -63,7 +63,25 @@ Plug 'bfrg/vim-cpp-modern' " Aditional C/C++ syntax highlight
 Plug 'vim-scripts/c.vim' " Comment support C/C++
 Plug 'iamcco/markdown-preview.nvim' " Markdown viewer
 Plug 'rust-lang/rust.vim' " Rust
+Plug 'Fymyte/rasi.vim' " .rasi file plugin
+Plug 'lervag/vimtex' " LaTeX syntax
+Plug 'fatih/vim-go' 
+" Plug 'robertbasic/vim-hugo-helper'  Hugo
+" Plug 'xuhdev/vim-latex-live-preview'  LaTeX live preview
 call plug#end()
+
+" LaTeX Settings
+let g:vimtex_view_method = 'zathura'
+let g:vimtex_indent_enabled = 1
+let g:vimtex_complete_enabled = 1
+let g:vimtex_imaps_enabled = 1
+" let g:vimtex_complete_close_braces = 1
+" let g:vimtex_complete_bib = 1
+" let g:vimtex_complete_close_braces = 1
+" let g:vimtex_complete_enabled = 1
+" let g:vimtex_complete_ignore_case = 1
+" let g:vimtex_complete_ref = 1
+" let g:vimtex_complete_smart_case = 1
 
 let g:clang_c_options = '-std=gnu11'
 let g:clang_cpp_options = '-std=c++11 -stdlib=libc++'
@@ -144,3 +162,26 @@ imap <C-ScrollWheelLeft> <nop>
 imap <ScrollWheelRight> <nop>
 imap <S-ScrollWheelRight> <nop>
 imap <C-ScrollWheelRight> <nop>
+
+function DetectGoHtmlTmpl()
+    if expand('%:e') == "html" && search("{{") != 0
+        setfiletype gohtmltmpl
+    endif
+endfunction
+
+augroup filetypedetect
+    " gohtmltmpl
+    au BufRead,BufNewFile *.html call DetectGoHtmlTmpl()
+augroup END
+
+function DetectGoMarkdownTmpl()
+    if expand('%:e') == "md" && search("{{") != 0
+        setfiletype gomdtmpl
+    endif
+endfunction
+
+augroup filetypedetect
+    " gomdtmpl
+    au BufRead,BufNewFile *.md call DetectGoMarkdownTmpl()
+augroup END
+
