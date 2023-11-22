@@ -1,19 +1,30 @@
-#!/bin/bash
+#!/bin/sh
 
-[ $# -eq 0 ] || [ -z $1 ] || [ ! -f "./$1" ] && exit 1
+BUILD_DIRECTORY="build"
 
-# If the given file type is not C/C++ exit
-echo "$1" | grep -Evq "\.c(pp)?$" && exit 1
-
-# Binary file name
-bin=$(echo $1 | sed "s/c\(pp\)\?/o/g")
-
-# Compile
-echo $1 | grep -Eq "\.c$" && gcc $1 -o $bin
-echo $1 | grep -Eq "\.cpp$" && g++ $1 -o $bin
-
-# Run and time execution
-[ ! -f "./$bin" ] &&
-	echo "Compilation failed" &&
+if [ -z $1 ] || [ ! -d $1 ]; then
+	printf "\033[1;31m✘  \033[0mNo directory specified!\n"
 	exit 1
-time ./$bin
+fi
+
+DIRECTORY_PATH=$(realpath $1)
+
+# Check if directory is initialised as a C++ project
+ls "$DIRECTORY_PATH/CMakeLists.txt" 2>/dev/null >/dev/null
+
+if [ $? -ne 0 ]; then
+	printf "\033[1;31m✘  \033[0mThe project specified does not have a CMakeLists.txt file!\n"
+	exit 2
+fi
+
+BINARY_PATH=$(cat "$DIRECTORY_PATH/CMakeLists.txt" | grep -Eo "add_executable\(.+" | grep -Eo "\(.+" | sed -E "s/[\(\)]//" | cut -d" " -f1)
+
+printf "\033[0;36m  Building the project using \033[1;35mcmake \033[0;36mand \033[1;35mmake\033[0;36m...\033[0m\n"
+cmake -S "$DIRECTORY_PATH" -B "$DIRECTORY_PATH/$BUILD_DIRECTORY" -DCMAKE_BUILD_TYPE=Debug
+[ $? -ne 0 ] && exit 5
+make -C "$DIRECTORY_PATH/$BUILD_DIRECTORY"
+[ $? -ne 0 ] && exit 5
+
+printf "\n\033[0;36m  Running and timing built binary...\033[0m\n"
+[ -f $DIRECTORY_PATH/input ] && INPUT_FILE=" < $DIRECTORY_PATH/input"
+time eval "$DIRECTORY_PATH/$BUILD_DIRECTORY/$BINARY_PATH${INPUT_FILE}"

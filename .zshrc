@@ -11,7 +11,7 @@ plugins=(git vi-mode archlinux zsh-autosuggestions zsh-syntax-highlighting)
 source $ZSH/oh-my-zsh.sh
 
 # set prefferred editor
-export EDITOR='vim'
+export EDITOR="nvim"
 
 # autocomplete
 autoload -Uz compinit
@@ -41,8 +41,8 @@ if [ -x /usr/bin/dircolors ]; then
     zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 fi
 
-export GVIMINIT='let $MYGVIMRC="$XDG_CONFIG_HOME/vim/gvimrc" | source $MYGVIMRC'
-export VIMINIT='let $MYVIMRC="$XDG_CONFIG_HOME/vim/vimrc" | source $MYVIMRC'
+# export GVIMINIT='let $MYGVIMRC="$XDG_CONFIG_HOME/vim/gvimrc" | source $MYGVIMRC'
+# export VIMINIT='let $MYVIMRC="$XDG_CONFIG_HOME/vim/vimrc" | source $MYVIMRC'
 
 # Syntax highlighting
 export ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern regexp cursor)
@@ -57,6 +57,18 @@ HISTFILE="$XDG_STATE_HOME"/zsh/zsh_history
 HISTSIZE=1000
 SAVEHIST=2000
 
+### Fix slowness of pastes with zsh-syntax-highlighting.zsh
+pasteinit() {
+  OLD_SELF_INSERT=${${(s.:.)widgets[self-insert]}[2,3]}
+  zle -N self-insert url-quote-magic # I wonder if you'd need `.url-quote-magic`?
+}
+
+pastefinish() {
+  zle -N self-insert $OLD_SELF_INSERT
+}
+zstyle :bracketed-paste-magic paste-init pasteinit
+zstyle :bracketed-paste-magic paste-finish pastefinish
+
 # Pastebin
 0file() { curl -F"file=@$1" https://envs.sh ; }
 0pb() { curl -F"file=@-;" https://envs.sh ; }
@@ -65,5 +77,4 @@ SAVEHIST=2000
 imgur() { echo $(curl -s -X POST "https://api.imgur.com/3/upload" -F "image=@\"$1\"" | grep -Eo "https://i.imgur.com/[A-Za-z0-9]+\.[a-z]{2,4}") }
 #
 # flex
-[ ! -z $NEO_SHOW ] && neofetch || task
-true
+[ ! -z $NEO_SHOW ] && neofetch 

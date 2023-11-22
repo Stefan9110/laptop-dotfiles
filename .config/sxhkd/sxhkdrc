@@ -10,13 +10,13 @@ super + Return
 ctrl + super + Return
 	sh -c "export NEO_SHOW=1 && kitty"
 
-# librewolf browser
+# browser
 super + b
-	librewolf
+	chromium
 
 # chromium browser
 super + c
-	chromium
+	librewolf
 
 # Toggle redhsift
 super + r
@@ -131,8 +131,8 @@ super + e
 	winhide
 
 # focus or send to the given desktop
-super + {_,shift + }{1-5}
-	bspc {desktop -f,node -d} '^{1-5}'
+super + {_,shift + }{1-9}
+	bspc {desktop -f,node -d} '^{1-9}'
 
 # Swap between workspaces with arrows
 super + {bracketleft,bracketright}

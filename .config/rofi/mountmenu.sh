@@ -1,34 +1,43 @@
-#!/bin/sh
+#!/bin/bash
 
 ## Author	Stefan911
 ## Github	@Stefan9110
 
 # Options
-USB_DRIVES=$(lsblk -d -o name,rm | grep -E ".+1$" | cut -f1 -d" ")
+USB_DRIVES="$(lsblk -A -f --pairs -o name,label)"
 OPTIONS=""
 FOUND=0
 
+echo $USB_DRIVES
 
-for drive in $USB_DRIVES; do
-	if [ -z "$(lsblk -d /dev/$drive -o mountpoints | grep -Ev "MOUNTPOINTS")" ]; then
-		icon="  "
+OLDIFS="$IFS"
+IFS=$'\n'
+for drive in ${USB_DRIVES//\\n/}; do
+	name=$(echo $drive | grep -Eo "NAME=\"[a-zA-Z0-9]+\"" | cut -d"=" -f2 | sed "s/\"//g")
+	label=$(echo $drive | grep -Eo "LABEL=\"[a-zA-Z0-9 ]+\"" | cut -d"=" -f2 | sed "s/\"//g")
+	echo $drive
+	echo "$name ; $label;"
+	[ -z $label ] && continue
+	if [ -z "$(lsblk -d /dev/$name -o mountpoints | grep -Ev "MOUNTPOINTS")" ]; then
+		icon="禍  "
 	else
 		icon="  "
 	fi
 	
 	if [ $FOUND -eq 0 ]; then
-		OPTIONS="${OPTIONS}${icon}/dev/${drive}"
+		OPTIONS="${OPTIONS}${icon}  /dev/${name}    $label"
 		FOUND=1
 	else 
-		OPTIONS="${OPTIONS}\n${icon}/dev/${drive}"
+		OPTIONS="${OPTIONS}\n${icon}  /dev/${name}    $label"
 	fi
 done
+IFS="$OLDIFS"
 
 if [ -z "$OPTIONS" ]; then
 	exit 1
 fi
 
-to_mount="$(echo "$OPTIONS" | rofi -theme $HOME/.config/rofi/themes/rounded-purple-noicon.rasi -p "USB Mount Menu" -dmenu -selected-row 0 | grep -Eo "/dev/.+")"
+to_mount="$(echo -e "$OPTIONS" | rofi -theme $HOME/.config/rofi/themes/rounded-purple-noicon.rasi -p "USB Mount Menu" -dmenu -selected-row 0 | grep -Eo "/dev/[a-zA-Z0-9]+")"
 
 [ -z $to_mount ] && exit 2
 
